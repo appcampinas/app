@@ -2,7 +2,7 @@
 var app, base, concat, directory, gulp, gutil, hostname, path, refresh, sass, uglify, imagemin, minifyCSS, del, browserSync, autoprefixer, gulpSequence, shell, sourceMaps, plumber;
 
 var autoPrefixBrowserList = ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'];
-var diretorioDist = "c:/site_ddcred/htdocs/promocoes";
+var diretorioDist = "dist/";
 //var diretorioDist = "dist/app";
 
 //load all of our dependencies
@@ -14,7 +14,7 @@ uglify      = require('gulp-uglify');
 sass        = require('gulp-sass');
 sourceMaps  = require('gulp-sourcemaps');
 imagemin    = require('gulp-imagemin');
-minifyCSS   = require('gulp-minify-css');
+minifyCSS   = require('gulp-clean-css');
 browserSync = require('browser-sync');
 autoprefixer = require('gulp-autoprefixer');
 gulpSequence = require('gulp-sequence').use(gulp);
@@ -33,7 +33,7 @@ gulp.task('browserSync', function() {
             
             reloadDelay: 250
         },
-        port: 3010,
+        port: 4200,
         notify: false
     });
 });
@@ -80,7 +80,6 @@ gulp.task('scripts', function() {
     				'node_modules/angular-route/angular-route.min.js',
     				'node_modules/angular-input-masks/releases/angular-input-masks-standalone.js',
                     'node_modules/angular-i18n/angular-locale_pt-br.js',
-                    'C:/site_ddcred/htdocs/ddcartao/js/jquery.keypad.js',
     				'node_modules/alertifyjs/build/alertify.js'
     			])
                 //prevent pipe breaking caused by errors from gulp plugins
