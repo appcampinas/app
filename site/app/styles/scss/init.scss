@@ -1,52 +1,61 @@
 //colors 
 $red:#E10A0A;
 
-
-//misc settings
-@import 'config/_settings';
-@import 'config/_mixins';
-
-//frameworks
-
-//global things
-@import 'general/_reset';
-@import 'layout/_main';
-
-.container-fluid{
-    margin:0 !important;
-    padding:0 !important;
-}
-@media(min-width:720px){
-
-    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark{
+@media(min-width:720px) {
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
         min-height: 90px !important;
     }
-  
 }
 
-nav.navbar.navbar-expand-lg.navbar-dark.bg-dark{
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
     background-color: $red !important;
 }
+
 a.nav-link {
-    color:#FFF !important;
-}
-a.carousel-control-next{
-    color:orange !important;
+    color: #FFF !important;
 }
 
-.carousel-inner{
-    min-height:100vh !important;
-    min-width:100vw !important;
+a.carousel-control-next {
+    color: orange !important;
 }
 
-
+// .carousel-inner{
+//     min-height:100vh !important;
+//     min-width:100vw !important;
+// }
 .carousel-item span {
     height: 100vh;
     width: 100vw !important;
     background-repeat: no-repeat !important;
-    background-size:cover !important;
-    background-position:center !important;
+    background-size: cover !important;
+    background-position: center !important;
 }
-span.navbar-toggler-icon{
-    color:#FFF;
+
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+#conteudo {
+}
+
+#participe {
+    padding-top: 90px !important;
+    min-height: 50vh !important;
+}
+
+#contato {
+    padding-top: 90px !important;
+    min-height: 50vh !important;
+}
+#rodape{
+    padding-top:60px !important;
+}
+
+
+#quemSomos{
+    padding-top:90px !important;
+}
+ 
+#carouselExampleControls{
+    width: 100% !important;
 }
