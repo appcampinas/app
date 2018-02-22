@@ -65,17 +65,17 @@ gulp.task('images-deploy', function() {
 //compiling our Javascripts
 gulp.task('scripts', function() {
     //this is where our dev JS scripts are
-    return gulp.src([,
+    //'node_modules/angular/angular.min.js',
+    return gulp.src([,  
+                    'node_modules/jquery/dist/jquery.min.js',
                     'node_modules/popper.js/dist/popper.min.js',
                     'node_modules/lodash/lodash.min.js',
-    				'node_modules/jquery/dist/jquery.min.js',
-                    'node_modules/angular/angular.min.js',
                     'node_modules/ui-select/dist/select.min.js',
                     'node_modules/angular-sanitize/angular-sanitize.min.js',
                     'node_modules/angular-br-filters/release/angular-br-filters.min.js',
+                    'node_modules/bootstrap/dist/js/bootstrap.min.js',
     				'app/scripts/src/_includes/**/*.js', 
                     'app/scripts/src/**/*.js',                    
-    				'node_modules/bootstrap/dist/js/bootstrap.min.js',
     				'node_modules/wowjs/dist/wow.min.js',
     				'node_modules/angular-route/angular-route.min.js',
     				'node_modules/angular-input-masks/releases/angular-input-masks-standalone.js',
