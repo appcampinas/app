@@ -67,20 +67,12 @@ gulp.task('scripts', function() {
     //this is where our dev JS scripts are
     //'node_modules/angular/angular.min.js',
     return gulp.src([,  
-                    'node_modules/jquery/dist/jquery.min.js',
-                    'node_modules/popper.js/dist/popper.min.js',
-                    'node_modules/lodash/lodash.min.js',
-                    'node_modules/ui-select/dist/select.min.js',
-                    'node_modules/angular-sanitize/angular-sanitize.min.js',
-                    'node_modules/angular-br-filters/release/angular-br-filters.min.js',
+                    'node_modules/jquery/dist/jquery.js',
                     'node_modules/bootstrap/dist/js/bootstrap.min.js',
+                    'node_modules/popper.js/dist/popper.min.js',
     				'app/scripts/src/_includes/**/*.js', 
                     'app/scripts/src/**/*.js',                    
-    				'node_modules/wowjs/dist/wow.min.js',
-    				'node_modules/angular-route/angular-route.min.js',
-    				'node_modules/angular-input-masks/releases/angular-input-masks-standalone.js',
-                    'node_modules/angular-i18n/angular-locale_pt-br.js',
-    				'node_modules/alertifyjs/build/alertify.js'
+                    'node_modules/alertifyjs/build/alertify.js'
     			])
                 //prevent pipe breaking caused by errors from gulp plugins
                 .pipe(plumber())
@@ -122,7 +114,8 @@ gulp.task('styles', function() {
     				'node_modules/hover.css/css/hover-min.css',
     				'node_modules/font-awesome/css/font-awesome.min.css',
                     'node_modules/alertifyjs/build/css/alertify.css',
-                    'node_modules/alertifyjs/build/css/themes/bootstrap.css'
+                    'node_modules/alertifyjs/build/css/themes/bootstrap.css',
+                    'node_modules/font-awesome/css/font-awesome.min.css'
 
     			])
                 //prevent pipe breaking caused by errors from gulp plugins
