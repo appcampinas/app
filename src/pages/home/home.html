@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar>
+      <ion-grid>
+        <ion-row class="center">
+          <ion-col col-10>
+            <ion-searchbar placeholder="buscar..." (ionInput)="getItems($event)"></ion-searchbar> 
+          </ion-col>
+          <ion-col col-2>
+            <ion-icon name="options"></ion-icon>
+          </ion-col>        
+        </ion-row>
+      </ion-grid> 
+  </ion-navbar>
+
+  <!-- FILTROS -->
+  <ion-grid>
+      <ion-row text-center>
+        <ion-col><ion-icon name="ice-cream"></ion-icon><br/>Brasileira</ion-col>
+        <ion-col><ion-icon name="pin"></ion-icon><br/>Japonesa</ion-col>
+        <ion-col><ion-icon name="pizza"></ion-icon><br/>Lanches</ion-col>
+        <ion-col><ion-icon name="pin"></ion-icon><br/>Próximos</ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- FILTROS -->
+
+    <!-- ENDERECO SELECIONADO -->
+    <ion-grid class="enderecoSelecionado">
+      <ion-row text-center>
+        <ion-col>R Lotário Novaes, 71</ion-col>        
+        <ion-col>TROCAR</ion-col>        
+      </ion-row>
+    </ion-grid>
+    <!-- ENDERECO SELECIONADO -->
+
+</ion-header>
+
+<ion-content padding>
+
+  <!-- MOSTRAR OS ESTABELECIMENTOS -->
+  <ion-list>
+      <ion-item *ngFor="let x of estabelecimentos" (click)="verDetalhesEstabelecimento(x.cod)">
+        <ion-avatar item-start>
+          <img src="img/avatar-finn.png">
+        </ion-avatar>
+        <h2>China In Box - Cambui</h2>
+        <p>Chinesa</p>
+        <p>1,1km 50 - 60 min</p>
+      </ion-item>
+    </ion-list>
+  <!-- FIM MOSTRAR OS ESTABELECIMENTOS -->
+
+
+  <!-- ESCOLHER ENDERECO, UTILIZA GPS OU DIGITAR UM ENDERECO -->
+  <ion-card>
+    <img src="assets/imgs/prato.jpg"/>
+    <ion-card-content>
+      <ion-card-title>
+        Onde você quer
+        receber seu pedido?
+        </ion-card-title>
+      <p>
+        O xxx vai encontrar os restaurantes que entregam onde você estiver.
+      </p>
+      
+    </ion-card-content>
+    <button ion-button icon-left full (click)="usarMinhaLocalizacao()">
+        <ion-icon name="locate"></ion-icon>
+        Usar minha localização
+      </button>
+      <button ion-button icon-left full (click)="pageInserirEndereco()">
+          <ion-icon name="pin"></ion-icon>
+          Inserir endereço
+        </button>
+  </ion-card>
+</ion-content>
