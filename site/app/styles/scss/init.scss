@@ -1,0 +1,107 @@
+//colors 
+$red:#E10A0A;
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+$main-font: 'Roboto',sans-serif;
+
+body {  
+    font-family: $main-font; 
+  }
+@media(min-width:720px) {
+   // nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
+        // min-height: 90px !important;
+    //}
+}
+
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
+    background-color: $red !important;
+}
+
+a.nav-link {
+    color: #FFF !important;
+}
+
+a.carousel-control-next {
+    color: orange !important;
+}
+
+// .carousel-inner{
+//     min-height:100vh !important;
+//     min-width:100vw !important;
+// }
+.carousel-item span {
+    height: 100vh;
+    width: 100vw !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    background-position: 50% 70% !important; 
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+// #conteudo {
+// }
+
+#participe {
+    padding-top: 90px !important;
+    min-height: 50vh !important;    
+}
+
+#contato {
+    padding-top: 90px !important;
+    min-height: 50vh !important;
+}
+#rodape{
+    padding-top:60px !important;
+}
+
+
+#quemSomos{
+    padding-top:90px !important;
+}
+ 
+#carouselExampleControls{
+    width: 100% !important;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgb(225, 10, 10)' viewBox='0 0 8 8'%3E%3Cpath  d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+  }
+  
+  .carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgb(225, 10, 10)' viewBox='0 0 8 8'%3E%3Cpath  d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+  }
+
+// FORM
+.jumbotron {
+    
+    background-color: transparent !important;
+    /*background-color: transparent !important;*/
+    border: 1px solid #D0D0D0;
+    // box-shadow: 0 0 8px #D0D0D0;
+  }
+  #participe .jumbotron h4{
+       font-weight: lighter;
+  }
+  .glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    // -webkit-animation: spin .7s infinite linear;
+  }
+
+  @keyframes spin {
+    from {
+      transform: scale(1) rotate(0deg);
+    }
+    to {
+      transform: scale(1) rotate(360deg);
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+  /*.h4 {
+      font-size: 13px !important;
+      }*/
+    }
+// FIM FORM
