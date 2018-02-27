@@ -11,21 +11,25 @@ import { InserirEnderecoPage } from '../pages/inserir-endereco/inserir-endereco'
 import { PedidosPage } from '../pages/pedidos/pedidos';
 import { DetalharPedidoPage } from '../pages/detalhar-pedido/detalhar-pedido';
 import { DetalhesEstabelecimentoPage } from '../pages/detalhes-estabelecimento/detalhes-estabelecimento';
-
+import { DescobrirPage } from '../pages/descobrir/descobrir';
+import { EuPage } from '../pages/eu/eu';
+import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
+ 
 import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { SplashScreen } from '@ionic-native/splash-screen'; 
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
     TabsPage,
     InserirEnderecoPage,
     PedidosPage,
     DetalharPedidoPage,
-    DetalhesEstabelecimentoPage
+    DetalhesEstabelecimentoPage,
+    DescobrirPage,
+    EuPage,
+    ConfiguracoesPage
   ],
   imports: [
     BrowserModule,
@@ -33,16 +37,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    AboutPage,
-    ContactPage,
+    MyApp,    
     HomePage,
     TabsPage,
     InserirEnderecoPage,
     PedidosPage,
     DetalharPedidoPage,
-    DetalhesEstabelecimentoPage  
-  ],
+    DetalhesEstabelecimentoPage,
+    DescobrirPage,
+    EuPage,
+    ConfiguracoesPage
+  ], 
   providers: [
     StatusBar,
     SplashScreen,
