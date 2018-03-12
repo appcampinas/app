@@ -1,10 +1,10 @@
-//colors 
+//colors
 $red:#E10A0A;
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 $main-font: 'Roboto',sans-serif;
 
-body {  
-    font-family: $main-font; 
+body {
+    font-family: $main-font;
   }
 @media(min-width:720px) {
    // nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
@@ -34,7 +34,7 @@ a.carousel-control-next {
     background-repeat: no-repeat !important;
     background-size: cover !important;
     background-attachment: fixed !important;
-    background-position: 50% 70% !important; 
+    background-position: 50% 70% !important;
 }
 
 .navbar-dark .navbar-toggler-icon {
@@ -46,7 +46,7 @@ a.carousel-control-next {
 
 #participe {
     padding-top: 90px !important;
-    min-height: 50vh !important;    
+    min-height: 50vh !important;
 }
 
 #contato {
@@ -61,7 +61,7 @@ a.carousel-control-next {
 #quemSomos{
     padding-top:90px !important;
 }
- 
+
 #carouselExampleControls{
     width: 100% !important;
 }
@@ -69,14 +69,14 @@ a.carousel-control-next {
 .carousel-control-prev-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgb(225, 10, 10)' viewBox='0 0 8 8'%3E%3Cpath  d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
   }
-  
+
   .carousel-control-next-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgb(225, 10, 10)' viewBox='0 0 8 8'%3E%3Cpath  d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
   }
 
 // FORM
 .jumbotron {
-    
+
     background-color: transparent !important;
     /*background-color: transparent !important;*/
     border: 1px solid #D0D0D0;
@@ -105,3 +105,20 @@ a.carousel-control-next {
       }*/
     }
 // FIM FORM
+button{
+  cursor: pointer !important;
+}
+button.btn.btn-outline-danger.btn-lg.btn-block{
+  border-radius:0px !important;
+}
+a.nav-link:hover{
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
+}
+i.fa.fa-2x{
+ // color:$red !important;
+ padding-right:5px !important;
+}
+ i.fa.fa-2x.fa-whatsapp{
+   color:#25d366 !important;
+ }

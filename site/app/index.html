@@ -1,322 +1,331 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" ng-app="app">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="scripts/app.js"></script>
-    <link href="styles/styles.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="scripts/app.js"></script>
+  <link href="styles/styles.css" rel="stylesheet">
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<body ng-controller="MainCtrl">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbarTarget">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-        <div class="collapse navbar-collapse " id="menu">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#carouselExampleControls">Home </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#participe">Participe</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#quemSomos">Quem somos?</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="#contato">Contato</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+  <div class="collapse navbar-collapse " id="menu">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#carouselExampleControls">Home </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#participe">Participe</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#quemSomos">Quem somos?</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#contato">Contato</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-    <!-- http://lorempixel.com/1200/800/sports/1 -->
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <span class="d-block w-100" style="background-image:url(images/food1.jpg);" alt="First slide"></span>
-            </div>
-            <div class="carousel-item">
-                <span class="d-block w-100" style="background-image:url(images/food1.jpg);" alt="Second slide"></span>
-            </div>
-            <div class="carousel-item">
-                <span class="d-block w-100" style="background-image:url(images/food1.jpg);" alt="Third slide"></span>
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
+<!-- http://lorempixel.com/1200/800/sports/1 -->
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <span class="d-block w-100" style="background-image:url(images/food1.jpg);" alt="First slide"></span>
     </div>
-
-
-    <div class="container-fluid">
-
-
-
-        <!-- PARTICIPE -->
-        <div id="participe" class="row">
-            <div class="col-sm-12">
-                <div class="jumbotron">
-                    <div class="form-group">
-                        <h4 class="text-center nomeForm">Formulário de inscrição de estabelecimento</h4>
-                    </div>
-                    <div class='row'>
-                        <div class='col-sm-12'>
-                            <form name="form">
-                                <div class='row'>
-                                    <div class='col-sm-6 padding-right'>
-                                        <h4>Dados do estabelecimento</h4>
-                                        <div class='form-group'>
-                                            <input class='form-control' name="nomeFantasia" id="nomeFantasia" required ng-model="cadastro.estabelecimento" maxlength='80'
-                                                placeholder='Nome Fantasia' type='text' ng-class="{'is-invalid': form.nomeFantasia.$invalid && form.nomeFantasia.$touched,'is-valid': form.nomeFantasia.$valid}">
-                                            <p ng-show="form.nomeFantasia.$invalid && form.nomeFantasia.$touched" style="color:red;font-size:10px !important;">Nome fantasia obrigatório</p>
-                                        </div>
-                                        <div class='form-group'>
-                                            <input class='form-control' ng-blur="checkDoc(cadastro.cnpj);" required ng-model="cadastro.cnpj" maxlength='18' ui-br-cpfcnpj-mask
-                                                placeholder='CNPJ/CPF do seu Estabelecimento (apenas números)' type='tel' id="cnpj"
-                                                name="cnpj" ng-class="{'is-invalid': form.cnpj.$invalid && form.cnpj.$touched,'is-valid': form.cnpj.$valid}">
-                                            <p ng-show="form.cnpj.$invalid && form.cnpj.$touched" style="color:red;font-size:10px !important;">CNPJ/CPF inválido</p>
-                                        </div>
-                                        <div class='form-group' ng-if="tipoCnpj">
-                                            <input class='form-control' ng-model="cadastro.razaoSocial" maxlength='80' name="razaoSocial" placeholder='Razão Social'
-                                                type='text' id="razaoScial" required ng-class="{'is-invalid': form.razaoSocial.$invalid && form.razaoSocial.$touched,'is-valid': form.razaoSocial.$valid}">
-                                            <p ng-show="form.razaoSocial.$invalid && form.razaoSocial.$touched" style="color:red;font-size:10px !important;">Razão Social obrigatório</p>
-                                        </div>
-                                        <div class='row' ng-if="tipoDoc">
-                                            <div class='col-sm-4'>
-                                                <div class='form-group'>
-                                                    <input class='form-control' ng-model="cadastro.rg" maxlength='40' placeholder='RG' type='text' name="rg" id="rg" required
-                                                        ng-class="{'is-invalid': form.rg.$invalid && form.rg.$touched,'is-valid': form.rg.$valid}">
-                                                    <p ng-show="form.rg.$invalid && form.rg.$touched" style="color:red;font-size:10px !important;">RG obrigatório</p>
-                                                </div>
-                                            </div>
-                                            <div class='col-sm-4'>
-                                                <div class='form-group'>
-                                                    <input class='form-control' ng-model="cadastro.dataEmissao" maxlength='40' placeholder='Data Emissão RG' type='text' ui-date-mask
-                                                        parse="false" name="dataEmissao" id="dataEmissao" required ng-class="{'is-invalid': form.dataEmissao.$invalid && form.dataEmissao.$touched,'is-valid': form.dataEmissao.$valid}">
-                                                    <p ng-show="form.dataEmissao.$invalid && form.dataEmissao.$touched" style="color:red;font-size:10px !important;">Data de emissão obrigatório</p>
-                                                </div>
-                                            </div>
-                                            <div class='col-sm-4'>
-                                                <div class='form-group'>
-                                                    <input class='form-control' ng-model="cadastro.dataNascimento" maxlength='40' placeholder='Data Nascimento' ui-date-mask
-                                                        type='text' parse="false" name="dataNascimento" id="dataNascimento" required
-                                                        ng-class="{'is-invalid': form.dataNascimento.$invalid && form.dataNascimento.$touched,'is-valid': form.dataNascimento.$valid}">
-                                                    <p ng-show="form.dataNascimento.$invalid && form.dataNascimento.$touched" style="color:red;font-size:10px !important;">Data de nascimento obrigatório</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class='row'>
-                                            <div class='col-sm-6'>
-                                                <div class='form-group'>
-                                                    <input class='form-control' ng-model="cadastro.dataAbertura" maxlength='40' placeholder='Data Abertura' type='text' ui-date-mask
-                                                        parse="false" ui-date-mask="YYYY-MM-DD" ng-blur="logData(cadastro.dataAbertura);"
-                                                        name="dataAbertura" id="dataAbertura" required ng-class="{'is-invalid': form.dataAbertura.$invalid && form.dataAbertura.$touched,'is-valid': form.dataAbertura.$valid}">
-                                                    <p ng-show="form.dataAbertura.$invalid && form.dataAbertura.$touched" style="color:red;font-size:10px !important;">Data abertura obrigatório</p>
-                                                </div>
-                                            </div>
-                                            <div class='col-sm-6'>
-                                                <div class='form-group'>
-                                                    <input class='form-control sp_phone' ng-model="cadastro.telefone" ui-br-phone-number placeholder='Telefone' type='text' name="telefone"
-                                                        id="telefone" required ng-class="{'is-invalid': form.telefone.$invalid && form.telefone.$touched,'is-valid': form.telefone.$valid}">
-                                                    <p ng-show="form.telefone.$invalid && form.telefone.$touched" style="color:red;font-size:10px !important;">Telefone obrigatório</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class='col-sm-6 padding-left'>
-                                        <h4>Endereço do estabelecimento</h4>
-                                        <div class='row'>
-                                            <div class='col-sm-6'>
-                                                <div class='form-group'>
-                                                    <input class='form-control number' required ng-model="cadastro.cep" ng-blur="carregaCep(cadastro.cep);" ui-br-cep-mask placeholder='CEP (apenas números)'
-                                                        type='text' name="cep" ng-class="{'is-invalid': form.cep.$invalid && form.cep.$touched,'is-valid': form.cep.$valid}">
-                                                    <p ng-show="form.cep.$invalid && form.cep.$touched" style="color:red;font-size:10px !important;">Cep obrigatório</p>
-                                                </div>
-                                            </div>
-                                            <div class='col-sm-6'>
-                                                <div class='form-group'>
-                                                    <select class='form-control' id="uf" ng-options="uf as uf.value for uf in comboUf track by uf.value" ng-model="cadastro.uf"
-                                                        ng-change="carregaUf(cadastro.uf);" name='uf' required ng-class="{'is-invalid': form.uf.$invalid && form.uf.$touched,'is-valid': form.uf.$valid}">
-                                                        <option value="">Estado</option>
-                                                    </select>
-                                                    <p ng-show="form.uf.$invalid && form.uf.$touched" style="color:red;font-size:10px !important;">Estado obrigatório</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class='row'>
-                                            <div class='col-sm-6'>
-                                                <div class='form-group'>
-                                                    <select ng-options="cidade.desc for cidade in comboCidade track by cidade.desc" class='form-control' ng-model="cadastro.cidade"
-                                                        name="cidade" required ng-class="{'is-invalid': form.cidade.$invalid && form.cidade.$touched,'is-valid': form.cidade.$valid}">
-                                                        <option selected='selected' disabled value="">Cidade</option>
-                                                    </select>
-                                                    <p ng-show="form.cidade.$invalid && form.cidade.$touched" style="color:red;font-size:10px !important;">Cidade obrigatório</p>
-                                                </div>
-                                            </div>
-                                            <div class='col-sm-6'>
-                                                <div class='form-group'>
-                                                    <input class='form-control ajax' required ng-model="cadastro.bairro" maxlength='50' placeholder='Bairro' type='text' name="bairro"
-                                                        required ng-class="{'is-invalid': form.bairro.$invalid && form.bairro.$touched,'is-valid': form.bairro.$valid}">
-                                                    <p ng-show="form.bairro.$invalid && form.bairro.$touched" style="color:red;font-size:10px !important;">Bairro obrigatório</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class='row'>
-                                            <div class='col-sm-9'>
-                                                <div class='form-group'>
-                                                    <input class='form-control ajax' required ng-model="cadastro.logradouro" maxlength='100' placeholder='Endereço do seu Estabelecimento'
-                                                        type='text' name="logradouro" ng-class="{'is-invalid': form.logradouro.$invalid && form.logradouro.$touched,'is-valid': form.logradouro.$valid}">
-                                                    <p ng-show="form.logradouro.$invalid && form.logradouro.$touched" style="color:red;font-size:10px !important;">Logradouro obrigatório</p>
-                                                </div>
-                                            </div>
-                                            <div class='col-sm-3'>
-                                                <div class='form-group'>
-                                                    <input class='form-control num number' required ng-model="cadastro.numero" maxlength='6' placeholder='Número' type='text'
-                                                        name="numero" ng-class="{'is-invalid': form.numero.$invalid && form.numero.$touched,'is-valid': form.numero.$valid}">
-                                                    <p ng-show="form.numero.$invalid && form.numero.$touched" style="color:red;font-size:10px !important;">Número obrigatório</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class='form-group'>
-                                            <input class='form-control' id='restaurantAddressCompl' maxlength='40' ng-model="cadastro.complemento" name="complemento"
-                                                placeholder='Complemento' type='text' required ng-class="{'is-valid': form.complemento.$valid && form.complemento.$dirty, 'is-invalid': form.complemento.$invalid && form.complemento.$prinstine}">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class='row'>
-                                    <div class='col-sm-6'>
-                                        <h4 style="margin-top:6px !important;">Contato do representante legal</h4>
-                                        <div class='row'>
-                                            <div class='col-sm-6'>
-                                                <div class='form-group'>
-                                                    <input class='form-control' required ng-model="cadastro.nomeResponsavel" maxlength='40' placeholder='Nome do Responsável'
-                                                        type='text' name="nomeResponsavel" ng-class="{'is-invalid': form.nomeResponsavel.$invalid && form.nomeResponsavel.$touched,'is-valid': form.nomeResponsavel.$valid}">
-                                                    <p ng-show="form.nomeResponsavel.$invalid && form.nomeResponsavel.$touched" style="color:red;font-size:10px !important;">Nome responsável obrigatório</p>
-                                                </div>
-                                            </div>
-                                            <div class='col-sm-6'>
-                                                <div class='form-group'>
-                                                    <input class='form-control' required ng-model="cadastro.sobrenomeResponsavel" name="sobrenome" maxlength='40' placeholder='Sobrenome'
-                                                        type='text' ng-class="{'is-invalid': form.sobrenome.$invalid && form.sobrenome.$touched,'is-valid': form.sobrenome.$valid}">
-                                                    <p ng-show="form.sobrenome.$invalid && form.sobrenome.$touched" style="color:red;font-size:10px !important;">Sobrenome obrigatório</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class='form-group'>
-                                            <input class='form-control' required ng-model="cadastro.email" maxlength='80' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$'
-                                                placeholder='Email do Responsável' type='email' name="email" ng-class="{'is-invalid': form.email.$invalid && form.email.$touched,'is-valid': form.email.$valid}">
-                                            <p ng-show="form.email.$invalid && form.email.$touched" style="color:red;font-size:10px !important;">E-mail obrigatório</p>
-                                        </div>
-                                        <div class='form-group'>
-                                            <input class='form-control' placeholder='Celular do Responsável (apenas números)' ui-br-phone-number type='tel' required
-                                                ng-model="cadastro.telefoneResponsavel" name="celularResp" ng-class="{'is-invalid': form.celularResp.$invalid && form.celularResp.$touched,'is-valid': form.celularResp.$valid}">
-                                            <p ng-show="form.celularResp.$invalid && form.celularResp.$touched" style="color:red;font-size:10px !important;">Celular Reponsavel obrigatório</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class='row'>
-                                    <div class="col-lg-8 text-right">
-                                        <div class="form-group">
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 text-right">
-                                        <div class="form-group">
-                                            <button class='btn btn-outline-danger btn-lg btn-block' ng-show="btnCadastro" ng-model="btnCadastro" ng-click="EnviaDados(cadastro);btnCadastro = false;carregando=true;"
-                                                ng-disabled="form.$invalid">Enviar dados para análise</button>
-                                            <button class="btn btn-outline-danger" ng-show="carregando">
-                                                <span class="fa fa-refresh glyphicon-refresh-animate"></span> Enviando...</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row" ng-show="return">
-                                    <div class="col-md-8"></div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="alert alert-success text-center" role="alert">
-                                                Solicitação enviada com sucesso.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!-- QUEM SOMOS -->
-        <div id="quemSomos" class="row">
-            <div class="col-sm-6">
-                <p>O que é Lorem Ipsum? Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos,
-                    e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos
-                    e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos,
-                    como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou
-                    na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente
-                    quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
-                </p>
-            </div>
-            <div class="col-sm-6">
-                <p>Porque nós o usamos? É um fato conhecido de todos que um leitor se distrairá com o conteúdo de texto legível
-                    de uma página quando estiver examinando sua diagramação. A vantagem de usar Lorem Ipsum é que ele tem
-                    uma distribuição normal de letras, ao contrário de "Conteúdo aqui, conteúdo aqui", fazendo com que ele
-                    tenha uma aparência similar a de um texto legível. Muitos softwares de publicação e editores de páginas
-                    na internet agora usam Lorem Ipsum como texto-modelo padrão, e uma rápida busca por 'lorem ipsum' mostra
-                    vários websites ainda em sua fase de construção. Várias versões novas surgiram ao longo dos anos, eventualmente
-                    por acidente, e às vezes de propósito (injetando humor, e coisas do gênero).
-                </p>
-            </div>
-        </div>
-        <!-- CONTATO -->
-        <div id="contato" class="row">
-            <div class="col-sm-6">
-                <!-- Classe fa-pulse giro 360 -->
-                <i class="fa fa-2x fa-envelope-square fa-pulse" style="padding-right:5px !important;"></i>Contato@app.campinas.br
-                <i class="fa fa-2x fa-email fa-pulse" style="padding-right:5px !important;"></i>Contato@app.campinas.br
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome">
-                </div>
-                <div class="form-group">
-                    <input type="email" name="nome" id="nome" class="form-control" placeholder="E-mail">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="nome" id="nome" class="form-control" placeholder="Assunto">
-                </div>
-                <div class="form-group">
-                    <textarea class="form-control"></textarea>
-                </div>
-            </div>
-        </div>
-        <div class="row" id="rodape">
-            <div class="col-sm-12 text-center">
-                <small>Copyright 2018-2018</small>
-            </div>
-        </div>
+    <div class="carousel-item">
+      <span class="d-block w-100" style="background-image:url(images/food1.jpg);" alt="Second slide"></span>
     </div>
+    <div class="carousel-item">
+      <span class="d-block w-100" style="background-image:url(images/food1.jpg);" alt="Third slide"></span>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<div class="container-fluid">
+  <!-- PARTICIPE -->
+  <div id="participe" class="row">
+    <div class="col-sm-12">
+      <div class="jumbotron">
+        <div class="form-group">
+          <h4 class="text-center nomeForm">Formulário de inscrição de estabelecimento</h4>
+        </div>
+        <div class='row'>
+          <div class='col-sm-12'>
+            <form name="form">
+              <div class='row'>
+                <div class='col-sm-6 padding-right'>
+                  <h4>Dados do estabelecimento</h4>
+                  <div class='form-group'>
+                    <input class='form-control' name="nomeFantasia" id="nomeFantasia" required ng-model="cadastro.estabelecimento" maxlength='80'
+                    placeholder='Nome Fantasia' type='text' ng-class="{'is-invalid': form.nomeFantasia.$invalid && form.nomeFantasia.$touched,'is-valid': form.nomeFantasia.$valid}">
+                    <p ng-show="form.nomeFantasia.$invalid && form.nomeFantasia.$touched" style="color:red;font-size:10px !important;">Nome fantasia obrigatório</p>
+                  </div>
+                  <div class='form-group'>
+                    <input class='form-control' ng-blur="checkDoc(cadastro.cnpj);" required ng-model="cadastro.cnpj" maxlength='18' ui-br-cpfcnpj-mask
+                    placeholder='CNPJ/CPF do seu Estabelecimento (apenas números)' type='tel' id="cnpj"
+                    name="cnpj" ng-class="{'is-invalid': form.cnpj.$invalid && form.cnpj.$touched,'is-valid': form.cnpj.$valid}">
+                    <p ng-show="form.cnpj.$invalid && form.cnpj.$touched" style="color:red;font-size:10px !important;">CNPJ/CPF inválido</p>
+                  </div>
+                  <div class='form-group' ng-if="tipoCnpj">
+                    <input class='form-control' ng-model="cadastro.razaoSocial" maxlength='80' name="razaoSocial" placeholder='Razão Social'
+                    type='text' id="razaoScial" required ng-class="{'is-invalid': form.razaoSocial.$invalid && form.razaoSocial.$touched,'is-valid': form.razaoSocial.$valid}">
+                    <p ng-show="form.razaoSocial.$invalid && form.razaoSocial.$touched" style="color:red;font-size:10px !important;">Razão Social obrigatório</p>
+                  </div>
+                  <div class='row' ng-if="tipoDoc">
+                    <div class='col-sm-4'>
+                      <div class='form-group'>
+                        <input class='form-control' ng-model="cadastro.rg" maxlength='40' placeholder='RG' type='text' name="rg" id="rg" required
+                        ng-class="{'is-invalid': form.rg.$invalid && form.rg.$touched,'is-valid': form.rg.$valid}">
+                        <p ng-show="form.rg.$invalid && form.rg.$touched" style="color:red;font-size:10px !important;">RG obrigatório</p>
+                      </div>
+                    </div>
+                    <div class='col-sm-4'>
+                      <div class='form-group'>
+                        <input class='form-control' ng-model="cadastro.dataEmissao" maxlength='40' placeholder='Data Emissão RG' type='text' ui-date-mask
+                        parse="false" name="dataEmissao" id="dataEmissao" required ng-class="{'is-invalid': form.dataEmissao.$invalid && form.dataEmissao.$touched,'is-valid': form.dataEmissao.$valid}">
+                        <p ng-show="form.dataEmissao.$invalid && form.dataEmissao.$touched" style="color:red;font-size:10px !important;">Data de emissão obrigatório</p>
+                      </div>
+                    </div>
+                    <div class='col-sm-4'>
+                      <div class='form-group'>
+                        <input class='form-control' ng-model="cadastro.dataNascimento" maxlength='40' placeholder='Data Nascimento' ui-date-mask
+                        type='text' parse="false" name="dataNascimento" id="dataNascimento" required
+                        ng-class="{'is-invalid': form.dataNascimento.$invalid && form.dataNascimento.$touched,'is-valid': form.dataNascimento.$valid}">
+                        <p ng-show="form.dataNascimento.$invalid && form.dataNascimento.$touched" style="color:red;font-size:10px !important;">Data de nascimento obrigatório</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class='row'>
+                    <div class='col-sm-6'>
+                      <div class='form-group'>
+                        <input class='form-control' ng-model="cadastro.dataAbertura" maxlength='40' placeholder='Data Abertura' type='text' ui-date-mask
+                        parse="false" ui-date-mask="YYYY-MM-DD" ng-blur="logData(cadastro.dataAbertura);"
+                        name="dataAbertura" id="dataAbertura" required ng-class="{'is-invalid': form.dataAbertura.$invalid && form.dataAbertura.$touched,'is-valid': form.dataAbertura.$valid}">
+                        <p ng-show="form.dataAbertura.$invalid && form.dataAbertura.$touched" style="color:red;font-size:10px !important;">Data abertura obrigatório</p>
+                      </div>
+                    </div>
+                    <div class='col-sm-6'>
+                      <div class='form-group'>
+                        <input class='form-control sp_phone' ng-model="cadastro.telefone" ui-br-phone-number placeholder='Telefone' type='text' name="telefone"
+                        id="telefone" required ng-class="{'is-invalid': form.telefone.$invalid && form.telefone.$touched,'is-valid': form.telefone.$valid}">
+                        <p ng-show="form.telefone.$invalid && form.telefone.$touched" style="color:red;font-size:10px !important;">Telefone obrigatório</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class='col-sm-6 padding-left'>
+                  <h4>Endereço do estabelecimento</h4>
+                  <div class='row'>
+                    <div class='col-sm-6'>
+                      <div class='form-group'>
+                        <input class='form-control number' required ng-model="cadastro.cep" ng-blur="carregaCep(cadastro.cep);" ui-br-cep-mask placeholder='CEP (apenas números)'
+                        type='text' name="cep" ng-class="{'is-invalid': form.cep.$invalid && form.cep.$touched,'is-valid': form.cep.$valid}">
+                        <p ng-show="form.cep.$invalid && form.cep.$touched" style="color:red;font-size:10px !important;">Cep obrigatório</p>
+                      </div>
+                    </div>
+                    <div class='col-sm-6'>
+                      <div class='form-group'>
+                        <select class='form-control' id="uf" ng-options="uf as uf.value for uf in comboUf track by uf.value" ng-model="cadastro.uf"
+                        ng-change="carregaUf(cadastro.uf);" name='uf' required ng-class="{'is-invalid': form.uf.$invalid && form.uf.$touched,'is-valid': form.uf.$valid}">
+                        <option value="">Estado</option>
+                      </select>
+                      <p ng-show="form.uf.$invalid && form.uf.$touched" style="color:red;font-size:10px !important;">Estado obrigatório</p>
+                    </div>
+                  </div>
+                </div>
+                <div class='row'>
+                  <div class='col-sm-6'>
+                    <div class='form-group'>
+                      <select ng-options="cidade.desc for cidade in comboCidade track by cidade.desc" class='form-control' ng-model="cadastro.cidade"
+                      name="cidade" required ng-class="{'is-invalid': form.cidade.$invalid && form.cidade.$touched,'is-valid': form.cidade.$valid}">
+                      <option selected='selected' disabled value="">Cidade</option>
+                    </select>
+                    <p ng-show="form.cidade.$invalid && form.cidade.$touched" style="color:red;font-size:10px !important;">Cidade obrigatório</p>
+                  </div>
+                </div>
+                <div class='col-sm-6'>
+                  <div class='form-group'>
+                    <input class='form-control ajax' required ng-model="cadastro.bairro" maxlength='50' placeholder='Bairro' type='text' name="bairro"
+                    required ng-class="{'is-invalid': form.bairro.$invalid && form.bairro.$touched,'is-valid': form.bairro.$valid}">
+                    <p ng-show="form.bairro.$invalid && form.bairro.$touched" style="color:red;font-size:10px !important;">Bairro obrigatório</p>
+                  </div>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-9'>
+                  <div class='form-group'>
+                    <input class='form-control ajax' required ng-model="cadastro.logradouro" maxlength='100' placeholder='Endereço do seu Estabelecimento'
+                    type='text' name="logradouro" ng-class="{'is-invalid': form.logradouro.$invalid && form.logradouro.$touched,'is-valid': form.logradouro.$valid}">
+                    <p ng-show="form.logradouro.$invalid && form.logradouro.$touched" style="color:red;font-size:10px !important;">Logradouro obrigatório</p>
+                  </div>
+                </div>
+                <div class='col-sm-3'>
+                  <div class='form-group'>
+                    <input class='form-control num number' required ng-model="cadastro.numero" maxlength='6' placeholder='Número' type='text'
+                    name="numero" ng-class="{'is-invalid': form.numero.$invalid && form.numero.$touched,'is-valid': form.numero.$valid}">
+                    <p ng-show="form.numero.$invalid && form.numero.$touched" style="color:red;font-size:10px !important;">Número obrigatório</p>
+                  </div>
+                </div>
+              </div>
+              <div class='form-group'>
+                <input class='form-control' id='restaurantAddressCompl' maxlength='40' ng-model="cadastro.complemento" name="complemento"
+                placeholder='Complemento' type='text' required ng-class="{'is-valid': form.complemento.$valid && form.complemento.$dirty, 'is-invalid': form.complemento.$invalid && form.complemento.$prinstine}">
+              </div>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-sm-6'>
+              <h4 style="margin-top:6px !important;">Contato do representante legal</h4>
+              <div class='row'>
+                <div class='col-sm-6'>
+                  <div class='form-group'>
+                    <input class='form-control' required ng-model="cadastro.nomeResponsavel" maxlength='40' placeholder='Nome do Responsável'
+                    type='text' name="nomeResponsavel" ng-class="{'is-invalid': form.nomeResponsavel.$invalid && form.nomeResponsavel.$touched,'is-valid': form.nomeResponsavel.$valid}">
+                    <p ng-show="form.nomeResponsavel.$invalid && form.nomeResponsavel.$touched" style="color:red;font-size:10px !important;">Nome responsável obrigatório</p>
+                  </div>
+                </div>
+                <div class='col-sm-6'>
+                  <div class='form-group'>
+                    <input class='form-control' required ng-model="cadastro.sobrenomeResponsavel" name="sobrenome" maxlength='40' placeholder='Sobrenome'
+                    type='text' ng-class="{'is-invalid': form.sobrenome.$invalid && form.sobrenome.$touched,'is-valid': form.sobrenome.$valid}">
+                    <p ng-show="form.sobrenome.$invalid && form.sobrenome.$touched" style="color:red;font-size:10px !important;">Sobrenome obrigatório</p>
+                  </div>
+                </div>
+              </div>
+              <div class='form-group'>
+                <input class='form-control' required ng-model="cadastro.email" maxlength='80' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$'
+                placeholder='Email do Responsável' type='email' name="email" ng-class="{'is-invalid': form.email.$invalid && form.email.$touched,'is-valid': form.email.$valid}">
+                <p ng-show="form.email.$invalid && form.email.$touched" style="color:red;font-size:10px !important;">E-mail obrigatório</p>
+              </div>
+              <div class='form-group'>
+                <input class='form-control' placeholder='Celular do Responsável (apenas números)' ui-br-phone-number type='tel' required
+                ng-model="cadastro.telefoneResponsavel" name="celularResp" ng-class="{'is-invalid': form.celularResp.$invalid && form.celularResp.$touched,'is-valid': form.celularResp.$valid}">
+                <p ng-show="form.celularResp.$invalid && form.celularResp.$touched" style="color:red;font-size:10px !important;">Celular Reponsavel obrigatório</p>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class='row'>
+            <div class="col-lg-8 text-right">
+              <div class="form-group">
+
+              </div>
+            </div>
+            <div class="col-lg-4 text-right">
+              <div class="form-group">
+                <button class='btn btn-outline-danger ' ng-model="btnCadastro" ng-click="enviarCadastro();">Enviar dados para análise</button>
+                <button class="btn btn-outline-danger " ng-show="carregando">
+                  <span class="fa fa-refresh glyphicon-refresh-animate"></span> Enviando...</button>
+                </div>
+              </div>
+            </div>
+            <div class="row" ng-show="return">
+              <div class="col-md-8"></div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <div class="alert alert-success text-center" role="alert">
+                    Solicitação enviada com sucesso.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- QUEM SOMOS -->
+<div id="quemSomos" class="row">
+  <div class="col-sm-6">
+    <p>O que é Lorem Ipsum? Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos,
+      e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos
+      e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos,
+      como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou
+      na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente
+      quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
+    </p>
+  </div>
+  <div class="col-sm-6">
+    <p>Porque nós o usamos? É um fato conhecido de todos que um leitor se distrairá com o conteúdo de texto legível
+      de uma página quando estiver examinando sua diagramação. A vantagem de usar Lorem Ipsum é que ele tem
+      uma distribuição normal de letras, ao contrário de "Conteúdo aqui, conteúdo aqui", fazendo com que ele
+      tenha uma aparência similar a de um texto legível. Muitos softwares de publicação e editores de páginas
+      na internet agora usam Lorem Ipsum como texto-modelo padrão, e uma rápida busca por 'lorem ipsum' mostra
+      vários websites ainda em sua fase de construção. Várias versões novas surgiram ao longo dos anos, eventualmente
+      por acidente, e às vezes de propósito (injetando humor, e coisas do gênero).
+    </p>
+  </div>
+</div>
+<!-- CONTATO -->
+<div id="contato" class="row">
+  <div class="col-sm-6">
+    <!-- Classe fa-pulse giro 360 -->
+    <div class="form-group">
+    <i class="fa fa-2x fa-envelope-square" style=""></i>Contato@app.campinas.br
+  </div>
+  <div class="form-group">
+    <i class="fa fa-2x fa-phone-square" style=""></i>(19) 9999-9999
+  </div>
+  <div class="form-group">
+    <i class="fa fa-whatsapp-squaree"></i>
+  </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-group">
+      <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome" ng-model="enviarEmail.nome">
+    </div>
+    <div class="form-group">
+      <input type="email" name="nome" id="nome" class="form-control" placeholder="E-mail" ng-model="enviarEmail.email">
+    </div>
+    <div class="form-group">
+      <input type="text" name="nome" id="nome" class="form-control" placeholder="Assunto" ng-model="enviarEmail.assunto">
+    </div>
+    <div class="form-group">
+      <textarea class="form-control" placeholder="Digite sua Mensagem" ng-model="enviarEmail.mensagem"></textarea>
+    </div>
+    <div class="row">
+      <div class="col-6 col-sm-3">
+      <div class="form-group">
+        <button class='btn btn-outline-danger ' ng-model="btnEmail" ng-click="enviarEmail();">Enviar</button>
+        <button class="btn btn-outline-danger" ng-show="carregando">
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="row" id="rodape">
+    <div class="col-sm-12 text-center">
+      <small>Copyright 2018-2018</small>
+    </div>
+  </div>
+</div>
 </body>
 
 
 </html>
 
 <script>
-    $('.navbar-nav>li>a').on('click', function () {
-        $('.navbar-collapse').collapse('hide');
-    });
+$('.navbar-nav>li>a').on('click', function () {
+  $('.navbar-collapse').collapse('hide');
+});
 
 </script>

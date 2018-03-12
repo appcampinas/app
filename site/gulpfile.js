@@ -27,10 +27,10 @@ gulp.task('browserSync', function() {
     browserSync({
         browser: 'chrome',
         server: {
-            baseDir: "app/"   
+            baseDir: "app/"
         },
         options: {
-            
+
             reloadDelay: 250
         },
         port: 4200,
@@ -42,7 +42,7 @@ gulp.task('browserSync', function() {
 //compressing images & handle SVG files
 gulp.task('images', function(tmp) {
     gulp.src([
-    		'app/images/*.jpg', 
+    		'app/images/*.jpg',
     		'app/images/*.png'
     	])
         //prevent pipe breaking caused by errors from gulp plugins
@@ -54,7 +54,7 @@ gulp.task('images', function(tmp) {
 //compressing images & handle SVG files
 gulp.task('images-deploy', function() {
     gulp.src([
-    		'app/images/**/*', 
+    		'app/images/**/*',
     		'!app/images/README'
     	])
         //prevent pipe breaking caused by errors from gulp plugins
@@ -66,14 +66,15 @@ gulp.task('images-deploy', function() {
 gulp.task('scripts', function() {
     //this is where our dev JS scripts are
     //'node_modules/angular/angular.min.js',
-    return gulp.src([,  
+    return gulp.src([,
                     'node_modules/jquery/dist/jquery.js',
+                    'node_modules/angular/angular.min.js',
                     'node_modules/bootstrap/dist/js/bootstrap.min.js',
                     'node_modules/popper.js/dist/popper.min.js',
-                    'node_modules/angular/angular.min.js',
                     'node_modules/angular/angular-route.min.js',
-    				'app/scripts/src/_includes/**/*.js', 
-                    'app/scripts/src/**/*.js',                    
+                    'node_modules/angular-input-masks/releases/angular-input-masks-standalone.min.js',
+    				        'app/scripts/src/_includes/**/*.js',
+                    'app/scripts/src/**/*.js',
                     'node_modules/alertifyjs/build/alertify.js'
     			])
                 //prevent pipe breaking caused by errors from gulp plugins
@@ -132,7 +133,7 @@ gulp.task('styles', function() {
                 .pipe(sass({
                       errLogToConsole: true,
                       includePaths: [
-                          'app/styles/scss/'                          
+                          'app/styles/scss/'
                       ]
                 }))
                 .pipe(autoprefixer({
@@ -247,16 +248,15 @@ gulp.task('scaffold', function() {
 //  compress all scripts and SCSS files
 gulp.task('default', ['browserSync', 'scripts', 'styles'], function() {
     //a list of watchers, so it will watch all of the following files waiting for changes
-    gulp.watch('app/scripts/src/**', ['scripts']);   
-    
-    gulp.watch('app/styles/scss/**', ['styles']);    
+    gulp.watch('app/scripts/src/**', ['scripts']);
+
+    gulp.watch('app/styles/scss/**', ['styles']);
     gulp.watch('app/images/**', ['images']);
-    
+
     gulp.watch(['app/*.html'], ['html','fonts']);
-    
+
     connect.server();
 });
 
 //this is our deployment task, it will set everything for deployment-ready files
 gulp.task('deploy', gulpSequence('clean', 'scaffold', ['scripts-deploy', 'styles-deploy', 'images-deploy'], 'html-deploy'));
-
