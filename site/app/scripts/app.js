@@ -31328,6 +31328,7 @@ function openModalIframe(title,localPagina,corBG){
   $('#btnModal').click();
 }
 
+
 var tempo;
 var slideAtivo = 0;//comeco do vetor
 var slides   = [1,2]; //coloca os slides ordenados

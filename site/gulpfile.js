@@ -70,6 +70,8 @@ gulp.task('scripts', function() {
                     'node_modules/jquery/dist/jquery.js',
                     'node_modules/bootstrap/dist/js/bootstrap.min.js',
                     'node_modules/popper.js/dist/popper.min.js',
+                    'node_modules/angular/angular.min.js',
+                    'node_modules/angular/angular-route.min.js',
     				'app/scripts/src/_includes/**/*.js', 
                     'app/scripts/src/**/*.js',                    
                     'node_modules/alertifyjs/build/alertify.js'
@@ -116,7 +118,6 @@ gulp.task('styles', function() {
                     'node_modules/alertifyjs/build/css/alertify.css',
                     'node_modules/alertifyjs/build/css/themes/bootstrap.css',
                     'node_modules/font-awesome/css/font-awesome.min.css'
-
     			])
                 //prevent pipe breaking caused by errors from gulp plugins
                 .pipe(plumber({
