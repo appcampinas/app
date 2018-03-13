@@ -31573,7 +31573,12 @@ app.controller('MainCtrl', function($scope, $http) {
 
   $scope.enviarEmail = function(){
 
-    console.log('enviar E-mail');
+
+    $scope.enviarEmail.funcao = 'emailContato';
+
+    $http.post('www.teste.com.br/ws/',$.param($scope.enviarEmail)).then(function(result){
+          console.log(result);
+    });
 
   }
 

@@ -34,7 +34,7 @@ a.carousel-control-next {
     background-repeat: no-repeat !important;
     background-size: cover !important;
     background-attachment: fixed !important;
-    background-position: 50% 70% !important;
+    // background-position: 50% 70% !important;
 }
 
 .navbar-dark .navbar-toggler-icon {
@@ -55,6 +55,7 @@ a.carousel-control-next {
 }
 #rodape{
     padding-top:60px !important;
+    margin-bottom: 0px !important;
 }
 
 
@@ -121,4 +122,15 @@ i.fa.fa-2x{
 }
  i.fa.fa-2x.fa-whatsapp{
    color:#25d366 !important;
+ }
+span.carousel-control-next-icon{
+  height:30px !important;
+  width: 30px !important;
+ }
+ span.carousel-control-prev-icon{
+   height:30px !important;
+   width: 30px !important;
+ }
+ textarea:focus, input:focus, select:focus {
+     outline: 0;
  }
