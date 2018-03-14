@@ -2,7 +2,7 @@ function resizeIframe() {
     if(document.getElementById("iframeModal")){
         obj = document.getElementById("iframeModal");
     var tam = obj.scrollHeight;
-    
+
         if(tam <= $(window).height()){
             tam = $(window).height()-50;
                 obj.style.height = tam + 'px';
@@ -20,7 +20,7 @@ $(document).ready(function(){
     $("#bs-example-navbar-collapse-1").click(function(){
         $(".navbar-toggle").click()
     })
-    
+
 });
 
 function openModalIframe(title,localPagina,corBG){
@@ -28,7 +28,7 @@ function openModalIframe(title,localPagina,corBG){
   $("#myModal .modal-header").css("background",corBG);
   $("#myModal .modal-footer").css("background",corBG);
   $("#myModal .modal-body").css("padding","0px");
-  $("#myModal .modal-body").html("<div class='embed-responsive embed-responsive-16by9'><iframe id='iframeModal' onload='resizeIframe()' rows='50' class='embed-responsive-item' src='"+localPagina+"'></iframe></div>"); 
+  $("#myModal .modal-body").html("<div class='embed-responsive embed-responsive-16by9'><iframe id='iframeModal' onload='resizeIframe()' rows='50' class='embed-responsive-item' src='"+localPagina+"'></iframe></div>");
   //$("#myModal").modal();
   $('#btnModal').click();
 }
