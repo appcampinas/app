@@ -63,6 +63,7 @@ a.carousel-control-next {
 
 
 #quemSomos{
+  height:100vh;
   padding-top:90px !important;
 }
 
@@ -147,6 +148,7 @@ textarea:focus, input:focus, select:focus {
 #q1{
   background-color:#e10a0a;
   padding-bottom:13px !important;
+  height:20vh !important;
 }
 
 #q1 p {
@@ -169,9 +171,12 @@ textarea:focus, input:focus, select:focus {
   text-align: left;
 }
 #q2{
+  margin-top:15vh;
 background-color:#e10a0a;
 // padding-bottom:20px !important;
+padding-top:30px !important;
 padding-bottom:10px;
+height:60vh;
 // margin-right: 80px;
 // margin-left: -35px;
 }
@@ -255,3 +260,38 @@ a.fa.fa-3x.fa-angle-up:hover{
   color:$vinho;
 }
 input:focus{outline:none;}
+
+#device,#juntar p{
+  font-family: "Roboto";
+  line-height: 1.466;
+}
+#device img{
+  max-width: 350px;
+  max-height: 300px;
+}
+.pLeft{
+  margin-left:30px !important;
+  padding-bottom:20px !important;
+  margin-top: -4px !important;
+}
+@media screen and (max-width: 720px) {
+  .padding{
+     margin-top: 80px;
+  }
+  #q1{
+    padding-top:50px !important;
+    height:50vh !important;
+    margin:0px !important;
+  }
+  #q2{
+    padding-top:20px !important;
+    margin:0px !important;
+    height:50vh !important;
+  }
+  a.fa.fa-3x.fa-angle-down{
+    display: none;
+  }
+  #contato{
+    padding-top:20px !important;
+  }
+}
