@@ -63,23 +63,14 @@
   <div class="container-fluid">
     <!-- QUEM SOMOS -->
     <div id="quemSomos" class="row">
-      <div class="col-sm-6">
-        <div id="device">
-          <img src="images/multiple-devices.jpg">
+      <div class="col-sm-3 offset-sm-3">
+        <div id="ios">
+          <img src="images/ios.png">
         </div>
       </div>
-      <div class="col-sm-6">
-        <div id="juntar">
-            <p>Por que se juntar a nossa plataforma?</p>
-            <ul>
-              <li>Ao utilizar a plataforma você estara atigindo mais clientes, aumentando seu negócio e gerando mais renda</li>
-              <li>Você recebera um feedback dos pedidos</li>
-              <li>Acompanhamento em tempo real das suas vendas</li>
-              <li>Recebera seus pedidos através do aplicativo ou pelo site</li>
-              <li>Acessivel em qualquer plataforma</li>
-            </ul>
-            <p>Você pode acessar a loja por qualquer dispositivo que possua internet</p>
-            <p>Simples, rápido e fácil</p>
+      <div class="col-sm-3 offset-sm-3">
+        <div id="android">
+          <img src="images/android.png">
         </div>
       </div>
     </div>
@@ -101,7 +92,7 @@
       </div>
     </div>
   </div>
-  <div class="row align-items-end">
+  <div class="row">
     <div class="col-sm-4 offset-sm-2 form-group">
       <div id="q2">
         <h6>FACILITE SUA ENTREGA</h6>
@@ -140,12 +131,14 @@
         <input type="text" name="nome" id="nome" class="form-control" ng-model="enviarEmail.nome">
       </div>
       <div class="form-group">
-        <label>Cidade/Estado</label>
+
         <div class="row">
           <div class="col-sm-8">
+            <label>Cidade</label>
             <input type="text" name="nome" id="cidade" class="form-control form-control-sm"  ng-model="enviarEmail.email">
           </div>
           <div class="col-sm-4">
+            <label>Estado</label>
             <input type="text" name="nome" id="estado" class="form-control form-control-sm"  ng-model="enviarEmail.email">
           </div>
         </div>
@@ -179,7 +172,7 @@
   <div class="row justify-content-center">
     <div class="col-sm-5 offset-sm-2">
       <div class="float-right icon pLeft">
-          <i href="#carousel" class="fa fa-3x fa-angle-up"></i>
+          <a href="#carousel" class="fa fa-3x fa-angle-up"></a>
       </div>
       <div class="float-right icon">
         <i class="fa fa-2x fa-times-circle"></i>Cancelar
