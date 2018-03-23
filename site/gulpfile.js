@@ -69,12 +69,12 @@ gulp.task('scripts', function() {
     return gulp.src([,
                     'node_modules/jquery/dist/jquery.js',
                     'node_modules/angular/angular.min.js',
+                    'node_modules/angular/angular-route.min.js',
                     'node_modules/bootstrap/dist/js/bootstrap.min.js',
                     'node_modules/popper.js/dist/popper.min.js',
-                    'node_modules/angular/angular-route.min.js',
                     'node_modules/angular-input-masks/releases/angular-input-masks-standalone.min.js',
-    				        'app/scripts/src/_includes/**/*.js',
                     'app/scripts/src/**/*.js',
+    				        'app/scripts/src/_includes/**/*.js',
                     'node_modules/alertifyjs/build/alertify.js'
     			])
                 //prevent pipe breaking caused by errors from gulp plugins
@@ -111,11 +111,11 @@ gulp.task('styles', function() {
     //the initializer / master SCSS file, which will just be a file that imports everything
     return gulp.src([
                     'app/styles/scss/pages/*.css',
-    				'app/styles/scss/init.scss',
+    				        'app/styles/scss/init.scss',
                     'node_modules/bootstrap/dist/css/bootstrap.min.css',
                     'node_modules/ui-select/dist/select.min.css',
-    				'node_modules/hover.css/css/hover-min.css',
-    				'node_modules/font-awesome/css/font-awesome.min.css',
+    				        'node_modules/hover.css/css/hover-min.css',
+    				        'node_modules/font-awesome/css/font-awesome.min.css',
                     'node_modules/alertifyjs/build/css/alertify.css',
                     'node_modules/alertifyjs/build/css/themes/bootstrap.css',
                     'node_modules/font-awesome/css/font-awesome.min.css'
